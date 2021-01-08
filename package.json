@@ -1,0 +1,19 @@
+{
+  "name": "re-zero",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rianyunandar/re-zero.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/rianyunandar/re-zero/issues"
+  },
+  "homepage": "https://github.com/rianyunandar/re-zero#readme"
+}
