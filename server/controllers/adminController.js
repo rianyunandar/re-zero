@@ -21,4 +21,5 @@ module.exports = {
         res.render('admin/image/viewImage');
     }
     
+    
 }
