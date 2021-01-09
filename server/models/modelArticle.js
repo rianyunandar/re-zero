@@ -11,7 +11,7 @@ const articleSchema = new mongoose.Schema({
         type: String,
         required: [true, "Please input article name!"]
     },
-    articleDetail: {
+    articleDetail1: {
         type: String,
         default: "null"
     },
@@ -24,27 +24,26 @@ const articleSchema = new mongoose.Schema({
         default: "null"
     },
     articleDetail4: {
+        type: String,
+        default: "null"
+    },
+    articleDetail5: {
         type: Number,
         default: 0
     },
-    articleDetail5: {
-        type: Date,
-    },
     articleDetail6: {
         type: Date,
     },
-    articleDetail6: {
-        type: Boolean,
-        default: false
+    articleDetail7: {
+        type: Date,
     },
     articleStatus: {
         type: Boolean,
         default: true  
     },   
-    
     categoryId: {
         type: ObjectId,
-        ref: 'Category'
+        ref: 'Category',
       },
       imageId: [{
         type: ObjectId,
