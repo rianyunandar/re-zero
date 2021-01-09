@@ -15,5 +15,8 @@
   "bugs": {
     "url": "https://github.com/rianyunandar/re-zero/issues"
   },
-  "homepage": "https://github.com/rianyunandar/re-zero#readme"
+  "homepage": "https://github.com/rianyunandar/re-zero#readme",
+  "dependencies": {
+    "startbootstrap-sb-admin-2": "^4.1.3"
+  }
 }
