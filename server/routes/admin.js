@@ -2,6 +2,13 @@ var express = require('express');
 var router = express.Router();
 
 const adminController = require('../controllers/adminController');
+const publicController = require('../controllers/publicController');
+
+router.get('/login', publicController.viewLogin );
+router.post('/login', publicController.actionLogin );
+router.post('/logout', publicController.actionLogout );
+
+
 
 router.get('/dashboard/', adminController.viewDashboard );
 router.get('/comment/', adminController.viewComment );

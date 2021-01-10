@@ -4,10 +4,37 @@ var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 
+const flash = require('connect-flash');
+const session = require('express-session');
+
+const dotenv = require('dotenv');
+const colors = require('colors');
+
+const connectDb = require('./config/database.js');
+
+dotenv.config();
+connectDb();
+
+
 var indexRouter = require('./routes/index');
 const adminRouter = require('./routes/admin');
 
+
 var app = express();
+
+
+//setup login
+app.use(session({
+  secret: 'keyboard cat',
+  resave: false,
+  saveUninitialized: true,
+  cookie: { maxAge: 60000 }
+}));
+app.use(flash());
+
+
+
+
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
@@ -25,7 +52,8 @@ app.use('/admin', adminRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
-  next(createError(404));
+  // next(createError(404));
+   res.render('404', { url: req.url });
 });
 
 // error handler

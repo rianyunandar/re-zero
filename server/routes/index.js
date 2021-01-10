@@ -1,12 +1,10 @@
 var express = require('express');
-var router = express.Router();
-
 const publicController = require('../controllers/publicController');
-
+var router = express.Router();
 /* GET home page. */
-router.get('/', function(req, res, next) {
-  res.render('index', { title: 'Express' });
+router.get('/', function (req, res, next) {
+  res.redirect('/admin/login')
 });
-router.get('/login', publicController.Login );
+router.get('/404', publicController.view404 );
 
 module.exports = router;
