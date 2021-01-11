@@ -4,9 +4,12 @@
   "private": true,
   "scripts": {
     "start": "node ./bin/www",
-    "dev": "nodemon ./bin/www"
+    "dev": "nodemon ./bin/www",
+    "data:import": "node seeder",
+    "data:destroy": "node seeder -d"
   },
   "dependencies": {
+    "bcrypt": "^5.0.0",
     "bcryptjs": "^2.4.3",
     "colors": "^1.4.0",
     "connect-flash": "^0.1.1",
