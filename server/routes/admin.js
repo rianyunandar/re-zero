@@ -1,13 +1,10 @@
-var express = require('express');
-var router = express.Router();
+const express = require('express');
+const router = express.Router();
 
 const adminController = require('../controllers/adminController');
+const {isLogin,protect} = require('../middlewares/auth');
 
-router.get('/login', adminController.viewLogin );
-router.post('/login', adminController.actionLogin );
-router.get('/logout', adminController.actionLogout );
-
-
+router.use(isLogin)
 
 router.get('/dashboard/', adminController.viewDashboard );
 router.get('/comment/', adminController.viewComment );
