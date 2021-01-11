@@ -1,6 +1,9 @@
 const Users = require('../models/modelUser');
 const generateToken = require('../utils/generateToken.js')
-const auth = require('../middlewares/auth');
+// const auth = require('../middlewares/auth');
+
+const Category = require ( '../models/modelCategory.js')
+
 
 module.exports = {
     viewLogin :(req,res) => {
@@ -71,6 +74,7 @@ module.exports = {
         res.redirect('/admin/dashboard');
       }
     },
+
     viewArticle :(req,res) => {
       try {
         res.render('admin/article/viewArticle',{
@@ -81,6 +85,7 @@ module.exports = {
         res.redirect('/admin/article');
       }
     },
+
     viewUser :(req,res) => {
       try {
         res.render('admin/user/viewUser',{
@@ -92,10 +97,17 @@ module.exports = {
           res.redirect('/admin/user');
         }
     },
-    viewCategory :(req,res) => {
+
+    viewCategory :async(req,res) => {
       try {
+        const category = await Category.find();
+        const alertMessage = req.flash('alertMessage');
+        const alertStatus = req.flash('alertStatus');
+        const alert = { message: alertMessage, status: alertStatus };
         res.render('admin/category/viewCategory',{
           title: "Re:zero | Dashboard",
+          category,
+          alert,
           user: req.session.user,
         });
       }

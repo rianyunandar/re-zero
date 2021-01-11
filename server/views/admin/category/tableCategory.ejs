@@ -15,7 +15,22 @@
                         </tr>
                     </thead>
                     <tbody>
-
+                        <% for(let i = 0; i < category.length; i++){ %>
+                            <tr>
+                              <td><%= i + 1 %></td>
+                              <td><%= category[i].categoryName %></td>
+                              <td><%= category[i].categoryDetail %></td>
+                              <td>
+                                <form >
+                                  <a  type="button" class="btn btn-warning btn-circle btn-sm button-update"
+                                   ><i class="fas fa-edit"></i></a>
+                                  <button  class="btn btn-danger btn-circle btn-sm">
+                                      <i class="fas fa-trash"></i>
+                                    </button>
+                                </form>
+                              </td>
+                            </tr>
+                            <% } %>
                     </tbody>
                     <tfoot>
                         <tr>
