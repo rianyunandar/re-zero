@@ -17,7 +17,7 @@
 
                 <!-- Begin Page Content -->
                 <div class="container-fluid">
-
+                    <%- include('../../components/message.ejs') %>
                     <!-- Page Heading -->
                     <h1 class="h3 mb-4 text-gray-800">Category</h1>
 
@@ -54,9 +54,6 @@
       let id = $(this).data('id');
       let categoryName = $(this).data('name');
       let categoryDetail = $(this).data('detail');
-        
-    
-
       $('#edit-modal').modal('show');
       $('.id').val(id);
       $('.categoryName').val(categoryName);
