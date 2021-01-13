@@ -45,5 +45,23 @@
  
 
 </body>
+<%- include('addCategory.ejs')%>
+<%- include('editCategory.ejs')%>
 <%- include('../../components/script.ejs') %>
+
+<script>
+    $('#dataTable').on('click', '.button-update', function () {
+      let id = $(this).data('id');
+      let categoryName = $(this).data('name');
+      let categoryDetail = $(this).data('detail');
+        
+    
+
+      $('#edit-modal').modal('show');
+      $('.id').val(id);
+      $('.categoryName').val(categoryName);
+      $('.categoryDetail').val(categoryDetail);
+
+    })
+  </script>
 </html>

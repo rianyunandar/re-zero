@@ -115,6 +115,23 @@ module.exports = {
           res.redirect('/admin/category');
         }
     },
+    addCategory: async (req, res) => {
+      try {
+        const { categoryName,categoryDetail } = req.body;
+        // console.log(name);
+        await Category.create({ 
+          categoryName,
+          categoryDetail
+         });
+        req.flash('alertMessage', 'Success Add Category');
+        req.flash('alertStatus', 'success');
+        res.redirect('/admin/category');
+      } catch (error) {
+        req.flash('alertMessage', `${error.message}`);
+        req.flash('alertStatus', 'danger');
+        res.redirect('/admin/category');
+      }
+    },
     viewComment :(req,res) => {
       try {
         res.render('admin/comment/viewComment',{
