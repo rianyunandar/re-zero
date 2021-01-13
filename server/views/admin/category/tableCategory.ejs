@@ -25,13 +25,15 @@
                               <td><%= category[i].categoryDetail %></td>
                               <td>
                                 <form action="/admin/category/<%= category[i].id %>?_method=DELETE" method="POST">
-                                    <a href="javascript:void();" type="button" class="btn btn-warning btn-circle btn-sm button-update"
+                                    <a onclick="updateFuction();" type="button" class="btn btn-warning btn-circle btn-sm button-update"
                                   data-id="<%= category[i].id %>" 
                                   data-name="<%= category[i].categoryName %>"
                                   data-detail="<%= category[i].categoryDetail %>"
                                   >
                                   <i class="fas fa-edit"></i></a>
-                                  <button type="submit" class="btn btn-danger btn-circle btn-sm"><i class="fas fa-trash"></i></button>
+                                 <a onclick="deleteFuction();" type="button" class="btn btn-danger btn-circle btn-sm button-delete"
+                                 data-id="<%= category[i].id %>" 
+                                 ><i class="fas fa-trash"></i></a>
                                 </form>
                               </td>
                             </tr>

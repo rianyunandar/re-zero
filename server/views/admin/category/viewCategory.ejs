@@ -47,9 +47,11 @@
 </body>
 <%- include('addCategory.ejs')%>
 <%- include('editCategory.ejs')%>
+<%- include('deleteCategory.ejs')%>
 <%- include('../../components/script.ejs') %>
 
 <script>
+    function updateFuction() {
     $('#dataTable').on('click', '.button-update', function () {
       let id = $(this).data('id');
       let categoryName = $(this).data('name');
@@ -62,6 +64,13 @@
       $('.categoryName').val(categoryName);
       $('.categoryDetail').val(categoryDetail);
 
-    })
+    })}
+
+    function deleteFuction() {
+    $('#dataTable').on('click', '.button-delete', function () {
+      let id = $(this).data('id'); 
+      $('#delete-modal').modal('show');
+      $('.id').val(id);
+    })}
   </script>
 </html>
