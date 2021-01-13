@@ -6,6 +6,7 @@ var logger = require('morgan');
 
 const flash = require('connect-flash');
 const session = require('express-session');
+const methodOverride = require('method-override');
 
 const dotenv = require('dotenv');
 const colors = require('colors');
@@ -45,7 +46,9 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
+
 app.use('/sb-admin-2', express.static(path.join(__dirname, 'node_modules/startbootstrap-sb-admin-2'))); // style sb admin  & script
+app.use(methodOverride('_method'));
 
 app.use('/', indexRouter);
 app.use('/admin', adminRouter);

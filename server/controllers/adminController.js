@@ -118,7 +118,6 @@ module.exports = {
     addCategory: async (req, res) => {
       try {
         const { categoryName,categoryDetail } = req.body;
-        // console.log(name);
         await Category.create({ 
           categoryName,
           categoryDetail
@@ -132,6 +131,38 @@ module.exports = {
         res.redirect('/admin/category');
       }
     },
+    editCategory: async (req, res) => {
+      try {
+        const { id, categoryName,categoryDetail } = req.body;
+        const category = await Category.findOne({ _id: id });
+        category.categoryName = categoryName;
+        category.categoryDetail = categoryDetail;
+        await category.save();
+        req.flash('alertMessage', 'Success Update Category');
+        req.flash('alertStatus', 'success');
+        res.redirect('/admin/category');
+      } catch (error) {
+        req.flash('alertMessage', `${error.message}`);
+        req.flash('alertStatus', 'danger');
+        res.redirect('/admin/category');
+      }
+    },
+  
+    deleteCategory: async (req, res) => {
+      try {
+        const { id } = req.params;
+        const category = await Category.findOne({ _id: id });
+        await category.remove();
+        req.flash('alertMessage', 'Success Delete Category');
+        req.flash('alertStatus', 'success');
+        res.redirect('/admin/category');
+      } catch (error) {
+        req.flash('alertMessage', `${error.message}`);
+        req.flash('alertStatus', 'danger');
+        res.redirect('/admin/category');
+      }
+    },
+
     viewComment :(req,res) => {
       try {
         res.render('admin/comment/viewComment',{

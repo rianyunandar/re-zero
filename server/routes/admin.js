@@ -14,6 +14,9 @@ router.get('/article/', adminController.viewArticle );
 
 router.get('/category/', adminController.viewCategory );
 router.post('/category/', adminController.addCategory );
+router.put('/category/', adminController.editCategory );
+router.delete('/category/:id', adminController.deleteCategory );
+
 router.get('/image/', adminController.viewImage );
 
 module.exports=router;
